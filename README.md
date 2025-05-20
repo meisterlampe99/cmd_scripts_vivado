@@ -112,6 +112,7 @@ Non-project Mode:
 
 ## Ideas for future improvements
 
+- [ ] convert mode individual readme files to markdown files.
 - [ ] Add a flag to connect a System ILA debug core to all nets marked as
 debug. During configuration, supply the now generated .ltx file to the 
 hardware manager before downloading the bitstream.

@@ -12,6 +12,10 @@ To launch simulation:
 open cmd, navigate to this folder and run
 
 	vivado -mode batch -source runSim.tcl -tclarg TopModuleName
+	
+or use the supplied batch file with (old outputs are deleted before launch)
+	
+	runSim TopModuleName
 
 This then opens the GUI and displays the results.
 It automatically adds the TopModule's signals to the waveform window, as well
@@ -27,6 +31,10 @@ run:
 
 	vivado -mode batch -source runBit.tcl -tclarg TopModuleName 
 
+or use the supplied batch file with (old outputs are deleted before launch)
+
+	runBit TopModuleName
+
 In the folder ./output the generated files can be found.
 
 -------------------------------------------------------------------------------
@@ -36,7 +44,12 @@ run:
 
 	vivado -mode batch -source configFPGA.tcl -tclarg TopModuleName
 
+or use the supplied batch file with
+
+	config TopModuleName
+
 The done LED should light up on the board once it is configured
++ you should see some blinking LEDs
 
 -------------------------------------------------------------------------------
 edit runSettings.tcl to modify the used FPGA device
