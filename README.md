@@ -9,7 +9,7 @@ Includes an example usage for both Project and Non-Project modes.
 ## Overall Concept
 
 The scripts scan the launch folder for all SystemVerilog files (.sv). 
-The *TopModuleName* must be handed over to the scripts as an argument.
+The **TopModuleName** must be handed over to the scripts as an argument.
 Actual filenames should be irrelevant, but modules should be saved with the 
 module name in the filename: 
 	
@@ -17,16 +17,16 @@ The module **myModule** should be saved as **myModule.sv**.
 The *testbench module* of said module must be called **myModule_tb** 
 and should be saved as **myModule_tb.sv**.
 
-All constraint files (.xdc) found in the launch folder will be included	during 
-the build process. After Synthesis and Implementation design checkpoint (.dcp)
-files are created in the output folder *outputBit*, as well as utilization and 
-timing reports.
+All **constraint files (.xdc)** found in the launch folder will be included	during 
+the build process. After Synthesis and Implementation **design checkpoint (.dcp)**
+files are created in the output folder *outputBit*, as well as **utilization and 
+timing reports**.
 
 ### Project vs Non-Project mode
 
-Project mode allows you to also open the same project in GUI mode.
+- Project mode allows you to also open the same project in GUI mode.
 
-Non-Project mode should have an overall lower runtime.
+- Non-Project mode should have an overall lower runtime.
 
 ### Example Design
 
@@ -57,16 +57,16 @@ e.g.: *config.bat* or just *config*
 
 Available batch scripts:
 
-	- 'clean' 			removes most previously generated output
+	- clean 			removes most previously generated output
 
-	- 'runSim TopModuleName'	launches the simulation of TopModuleName_tb,
+	- runSim <TopModuleName>	launches the simulation of <TopModuleName>_tb,
 					and pre-loads a waveform configuration.
 
-	- 'runBit TopModuleName'	synthesizes, implements and generates the 
-					bitstream for TopModuleName
+	- runBit <TopModuleName>	synthesizes, implements and generates the 
+					bitstream for <TopModuleName>
 							
-	- 'config TopModuleName'	connects to the board and configures the
-					FPGA by downloading the bitstream generated from TopModuleName
+	- config <TopModuleName>	connects to the board and configures the
+					FPGA by downloading the bitstream generated from <TopModuleName>
 
 The targeted FPGA device can be chosen within the settings.tcl script.
 
@@ -75,9 +75,9 @@ The targeted FPGA device can be chosen within the settings.tcl script.
 Navigate to one of the example folders (project_mode, non-project_mode) from a
 Command Prompt in Windows and type:
 
-	- runSim top_level 
-	- runBit top_level 
-	- config top_level 
+	runSim top_level 
+	runBit top_level 
+	config top_level 
 
 ### Info on clean.bat script
 
@@ -98,15 +98,15 @@ only their respective output folders, outputSim or outputBit.
 
 Project Mode:
 
-	- vivado -mode batch -source runSim.tcl -tclarg TopModuleName
-	- vivado -mode batch -source runBit.tcl -tclarg TopModuleName
-	- vivado -mode batch -source config.tcl -tclarg TopModuleName
+	vivado -mode batch -source runSim.tcl -tclarg <TopModuleName>
+	vivado -mode batch -source runBit.tcl -tclarg <TopModuleName>
+	vivado -mode batch -source config.tcl -tclarg <TopModuleName>
 
 Non-project Mode:
 
-	- vivado -mode tcl -source npm_runSim.tcl -tclarg TopModuleName
-	- vivado -mode tcl -source npm_runBit.tcl -tclarg TopModuleName
-	- vivado -mode tcl -source npm_config.tcl -tclarg TopModuleName
+	vivado -mode tcl -source npm_runSim.tcl -tclarg <TopModuleName>
+	vivado -mode tcl -source npm_runBit.tcl -tclarg <TopModuleName>
+	vivado -mode tcl -source npm_config.tcl -tclarg <TopModuleName>
 
 -------------------------------------------------------------------------------
 
