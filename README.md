@@ -10,14 +10,14 @@ Includes an example usage for both project and non-project modes.
 
 The scripts scan the launch folder for all system verilog files (.sv). 
 The *TopModuleName* must be handed over to the scripts as an argument.
-Filenames should be irrelavant, but modules should be saved with the same 
+Filenames should be irrelevant, but modules should be saved with the same 
 filename: 
 	
 The module **myModule** should be saved as **myModule.sv**. 
 The *testbench module* of said module must be called **myModule_tb** 
 and should be saved as **myModule_tb.sv**.
 
-All constraint files found in the launch folder will also be considered in
+All constraint files found in the launch folder will also be considered
 	during the build! (.xdc)
 
 ### Project vs Non-Project mode
@@ -28,13 +28,13 @@ Non-project mode should have an overall lower runtime.
 
 ### Example Design
 
-An very basic example design is provided with the scripts: 
+A very basic example design is provided with the scripts: 
 A 24bit counter where the 8 MSB bits are connected to LEDs on a Basys3 board.
 
 ### Compatibility
 
 Tested for 2019.1 and 2024.2 versions, but should work with other versions.
-There was major change in tcl commands after with 2019.1, which is considered 
+There was major change in tcl commands after 2019.1, which is considered 
 when interacting with the hardware manager in the configuration script.
 
 ### Linting
@@ -51,7 +51,7 @@ TCL scripts are started via batch files to simplify the interface and
 to clean up the working directory before a launch.
 
 Batch files can be launched via their name, with or without their file ending:
-skript.bat or just skript
+config.bat or just config
 
 Available batch scripts:
 
@@ -60,7 +60,7 @@ Available batch scripts:
 	- 'runSim TopModuleName'	runs a simulation of TopModuleName_tb,
 					opens the GUI and adds some waveforms
 
-	- 'runBit TopModuleName'	synthesises, implements and generates the 
+	- 'runBit TopModuleName'	synthesizes, implements and generates the 
 					bitstream for TopModuleName
 							
 	- 'config TopModuleName'	connects to the board and configures the
@@ -70,7 +70,8 @@ The used FPGA device can be chosen within the settings.tcl script.
 
 ### Using the provided example
 
-Useage for the provided example files:
+Navigate to one of the example folders (project_mode, non-project_mode) from a
+command prompt in windows and type:
 
 	- runSim top_level 
 	- runBit top_level 
@@ -79,8 +80,9 @@ Useage for the provided example files:
 ### Info on clean.bat script
 
 The following files and folders are deleted when clean.bat is executed.
-the runSim.bat and runBit.bat scripts will delete the same files, but just
-their appropriate output folder outputSim or outputBit respectively.
+The *runSim.bat* and *runBit.bat* scripts will delete the same files, but 
+will delete just their appropriate output folder, outputSim or outputBit 
+respectively.
 
 	DEL vivado*.zip
 	DEL vivado*.jou
@@ -117,7 +119,7 @@ non-project mode:
 	to the directory of the HDL project.
 	
 	- launch the script from the created output subfolder instead of the 
-	launch folder, to make sure also vivado logs are dumped there instead.
+	launch folder, to ensure that Vivado logs are dumped there instead.
 	Then remove the potentially dangerous delete commands from the batch files.
 	
 	- add a similar example for a ZYBO board and the ZUBoard 1CG (Zynq US+)
