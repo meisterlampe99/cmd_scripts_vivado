@@ -111,15 +111,15 @@ non-project mode:
 
 ## Ideas for future improvements
 
-	- Add a flag to connect a System ILA debug core to all nets marked as
-	debug. During configuration, supply the now generated .ltx file to the 
-	hardware manager before downloading the bitstream.
-	
-	- launch scripts from an install directory instead of having to copy them
-	to the directory of the HDL project.
-	
-	- launch the script from the created output subfolder instead of the 
-	launch folder, to ensure that Vivado logs are dumped there instead.
-	Then remove the potentially dangerous delete commands from the batch files.
-	
-	- add a similar example for a ZYBO board and the ZUBoard 1CG (Zynq US+)
+- Add a flag to connect a System ILA debug core to all nets marked as
+debug. During configuration, supply the now generated .ltx file to the 
+hardware manager before downloading the bitstream.
+
+- launch scripts from an install directory instead of having to copy them
+to the directory of the HDL project.
+
+- launch the script from the created output subfolder instead of the 
+launch folder, to ensure that Vivado logs are dumped there instead.
+Then remove the potentially dangerous delete commands from the batch files.
+
+- add a similar example for a ZYBO board and the ZUBoard 1CG (Zynq US+)
