@@ -2,8 +2,8 @@
 @echo off
 REM Check if an argument was provided
 if "%~1"=="" (
-    echo Usage: runSim.bat TopModuleName
-    exit /b 1
+    echo Usage: runSim.bat TopModuleName
+    exit /b 1
 )
 
 set TopModuleName=%~1
