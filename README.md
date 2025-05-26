@@ -65,8 +65,9 @@ Available batch scripts:
 	- runBit <TopModuleName>	synthesizes, implements and generates the 
 					bitstream for <TopModuleName>
 							
-	- config <TopModuleName>	connects to the board and configures the
-					FPGA by downloading the bitstream generated from <TopModuleName>
+	- config <TopModuleName>	connects to the board and configures the FPGA
+					by downloading the bitstream generated from 
+					<TopModuleName>
 
 The targeted FPGA device can be chosen within the settings.tcl script.
 
