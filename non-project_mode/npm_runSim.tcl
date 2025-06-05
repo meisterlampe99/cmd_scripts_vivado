@@ -8,12 +8,17 @@ proc handle_error {msg} {
 if {[catch {
  	# Check if at least one argument is provided
 	if {$argc < 1} {
-	puts "Usage: vivado -mode tcl -source npm_runSim.tcl -tclarg <TopModuleName>"
+	puts "Usage: vivado -mode tcl -source npm_runSim.tcl -tclarg <TopModuleName> [Optional:<DUTname>]"
 	exit 1
 	}
 
 	# Get the first argument (topmodule)
 	set topmodule [lindex $argv 0]
+
+    if {$argc == 2} {
+    # Get the second argument (dutname) if available
+    set dutname [lindex $argv 1]
+    }
 
 	# Capture the start time
     set start_time [clock seconds]
@@ -86,7 +91,12 @@ if {[catch {
 	#exec xsim ${topmodule}_tb_sim -gui -tclbatch "../sim.tcl $topmodule"
 	
 	# export environment variable
+    set env(XSIM_ARGC) 1
 	set env(XSIM_TOPMODULE) $topmodule
+    if {$argc == 2} {
+        set env(XSIM_DUTNAME) $dutname
+        set env(XSIM_ARGC) 2
+    }
 
     # Open simulation GUI via launching xsim and sourcing another tcl script
 	exec xsim ${topmodule}_tb_sim -gui -tclbatch ../sim.tcl

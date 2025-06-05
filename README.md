@@ -59,22 +59,24 @@ e.g.: *config.bat* or just *config*
 Available batch scripts:
 
 	- clean 			removes most previously generated output
+					see also "Info on clean.bat script"
 
-	- runSim <TopModuleName>	launches the simulation of <TopModuleName>_tb,
-					and pre-loads a waveform configuration
-					Note: A module called "top_level_tb" must exist!
+	- runSim <TopModuleName> [<DUTname>]	launches the simulation of <TopModuleName>_tb,
+						and pre-loads a waveform configuration.
+						Note: A module called "top_level_tb" must exist!
+						[Optional:<DUTname>] adds a divider in the waveform
+						viewer and adds all DUT internal signals below.
 
-	- runBit <TopModuleName>	synthesizes, implements and generates the 
-					bitstream for <TopModuleName>
-							
-	- config <TopModuleName>	connects to the board and configures the FPGA
-					by downloading the bitstream generated from 
+	- runBit <TopModuleName>	synthesizes, implements and generates the bitstream for 
 					<TopModuleName>
+							
+	- config <TopModuleName>	connects to the board and configures the FPGA by down-
+					loading the bitstream generated from <TopModuleName>
 					
 	Note: Make sure the module is inside a system verilog file ".sv"
 	Note: Use the module name to run scripts not the filename.sv!
 	Note: All .sv files in the launch folder must be free of syntax errors!
-		To ignore files, remove the .sv ending, or move them out of the folder.
+	Tipp: To ignore files, remove the .sv ending, or move them out of the folder.
 
 The targeted FPGA device can be chosen within the settings.tcl script.
 
@@ -85,17 +87,15 @@ Command Prompt in Windows and type:
 
 | Pommand Prompt | PowerShell | Description |
 | ----------- | ----------- | ----------- |
-| `runSim top_level` | `./runSim top_level` | Note: "top_level_tb" module must exist!    |
+| `runSim top_level DUT` | `./runSim top_level DUT` | Note: "top_level_tb" module must exist! <br> The device under test in the example testbench is called DUT   |
 | `runBit top_level` | `./runBit top_level` |         |
 | `config top_level` | `./config top_level` | Note: Cable drivers must be installed!      |
 
- Note: Do never include the file ending ".sv"!
+ Note: Never include the file ending ".sv" in the \<TopModuleName\> parameter!
  
 ### Info on clean.bat script
 
-The following files and folders are deleted when clean.bat is executed.
-The *runSim.bat* and *runBit.bat* scripts will delete the same files, but 
-only their respective output folders, outputSim or outputBit.
+The following files and folders are deleted when clean.bat is executed:
 
 	DEL vivado*.zip
 	DEL vivado*.jou
@@ -106,17 +106,19 @@ only their respective output folders, outputSim or outputBit.
 	RMDIR /S /Q outputBit
 	RMDIR /S /Q .Xil
 
+The *runSim.bat* and *runBit.bat* scripts will do the same, but only delete their respective output folders, outputSim or outputBit, instead of both.
+
 ### Manual TCL script usage
 
 Project Mode:
 
-	vivado -mode batch -source runSim.tcl -tclarg <TopModuleName>
+	vivado -mode batch -source runSim.tcl -tclarg <TopModuleName> [<DUTname>]
 	vivado -mode batch -source runBit.tcl -tclarg <TopModuleName>
 	vivado -mode batch -source config.tcl -tclarg <TopModuleName>
 
 Non-project Mode:
 
-	vivado -mode tcl -source npm_runSim.tcl -tclarg <TopModuleName>
+	vivado -mode tcl -source npm_runSim.tcl -tclarg <TopModuleName> [<DUTname>]
 	vivado -mode tcl -source npm_runBit.tcl -tclarg <TopModuleName>
 	vivado -mode tcl -source npm_config.tcl -tclarg <TopModuleName>
 
@@ -131,10 +133,10 @@ Non-project Mode:
 - [ ] Add only one .xdc file to each run, named \<module\>.xdc
 - [x] Add warning to readme, that all .sv files in the launch location must be 
 free of syntax errors.
-- [ ] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
+- [x] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
 - [ ] Convert mode individual readme files to markdown files.
 
-### More into the future
+### Ideas for even further into the future
 - [ ] Add a flag to connect a System ILA debug core to all nets marked as
 debug. During configuration, supply the now generated .ltx file to the 
 hardware manager before downloading the bitstream.

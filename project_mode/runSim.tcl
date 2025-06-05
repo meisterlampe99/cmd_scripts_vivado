@@ -8,12 +8,17 @@ proc handle_error {msg} {
 if {[catch {
  	# Check if at least one argument is provided
 	if {$argc < 1} {
-	puts "Usage: vivado -mode batch -source runSim.tcl -tclarg <TopModuleName>"
+	puts "Usage: vivado -mode batch -source runSim.tcl -tclarg <TopModuleName> [Optional:<DUTname>]"
 	exit 1
 	}
 
 	# Get the first argument (topmodule)
 	set topmodule [lindex $argv 0]
+
+	if {$argc == 2} {
+	# Get the second argument (dutname)  if available
+	set dutname [lindex $argv 1]
+	}
 
 	# Capture the start time
 	set start_time [clock seconds]
@@ -92,8 +97,11 @@ if {[catch {
 	puts "Total simulation runtime: [expr {$end_time - $start_time}] seconds"
 
 	start_gui
-	add_wave_divider "DUT internal signals"
-	add_wave /${topmodule}_tb/DUT
+	# add divider and internal signals if DUT name is supplied
+	if {$argc == 2} {
+		add_wave_divider "${dutname} internal signals"
+		add_wave /${topmodule}_tb/${dutname}
+	}
 
 	# Copy simulation results (just wastes space)
 	#set sim_results_dir $project_dir/${project_name}.sim/sim_1/behav/xsim
