@@ -10,6 +10,7 @@ Includes an example usage for both Project and Non-Project modes.
 
 The scripts scan the launch folder for all SystemVerilog files (.sv). 
 The **TopModuleName** must be handed over to the scripts as an argument.
+All .sv files in the folder must be free of syntax errors!
 Actual filenames should be irrelevant, but modules should be saved with the 
 module name in the filename: 
 	
@@ -60,7 +61,8 @@ Available batch scripts:
 	- clean 			removes most previously generated output
 
 	- runSim <TopModuleName>	launches the simulation of <TopModuleName>_tb,
-					and pre-loads a waveform configuration.
+					and pre-loads a waveform configuration
+					Note: A module called "top_level_tb" must exist!
 
 	- runBit <TopModuleName>	synthesizes, implements and generates the 
 					bitstream for <TopModuleName>
@@ -68,18 +70,27 @@ Available batch scripts:
 	- config <TopModuleName>	connects to the board and configures the FPGA
 					by downloading the bitstream generated from 
 					<TopModuleName>
+					
+	Note: Make sure the module is inside a system verilog file ".sv"
+	Note: Use the module name to run scripts not the filename.sv!
+	Note: All .sv files in the launch folder must be free of syntax errors!
+		To ignore files, remove the .sv ending, or move them out of the folder.
 
 The targeted FPGA device can be chosen within the settings.tcl script.
 
-### Using the provided example
+### Usage of the provided example
 
 Navigate to one of the example folders (project_mode, non-project_mode) from a
 Command Prompt in Windows and type:
 
-	runSim top_level 
-	runBit top_level 
-	config top_level 
+| Pommand Prompt | PowerShell | Description |
+| ----------- | ----------- | ----------- |
+| `runSim top_level` | `./runSim top_level` | Note: "top_level_tb" module must exist!    |
+| `runBit top_level` | `./runBit top_level` |         |
+| `config top_level` | `./config top_level` | Note: Cable drivers must be installed!      |
 
+ Note: Do never include the file ending ".sv"!
+ 
 ### Info on clean.bat script
 
 The following files and folders are deleted when clean.bat is executed.
@@ -113,11 +124,12 @@ Non-project Mode:
 
 ## Ideas for future improvements
 
-- [ ] Add table to Readme showing script usage in CMD and Powershell (+path setup)
-- [ ] Combine IOSTANDARD and LOCATION parameters into single lines in .xdc
-- [ ] Add synchronizer for reset input.
+- [x] Add table to Readme showing script usage in CMD and Powershell (+path setup)
+- [x] Combine IOSTANDARD and LOCATION parameters into single lines in .xdc
+- [x] Add synchronizer for reset input.
+- [x] Emphasize the strict naming convention for simulation <module>\_tb for runSim script.
 - [ ] Add only one .xdc file to each run, named <module>.xdc
-- [ ] Add warning to readme, that all .sv files in the launch location must be 
+- [x] Add warning to readme, that all .sv files in the launch location must be 
 free of syntax errors.
 - [ ] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
 - [ ] Convert mode individual readme files to markdown files.
