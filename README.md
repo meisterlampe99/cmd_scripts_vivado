@@ -113,12 +113,16 @@ Non-project Mode:
 
 ## Ideas for future improvements
 
+- [ ] Add table to Readme showing script usage in CMD and Powershell (+path setup)
+- [ ] Combine IOSTANDARD and LOCATION parameters into single lines in .xdc
 - [ ] Add synchronizer for reset input.
 - [ ] Add only one .xdc file to each run, named <module>.xdc
 - [ ] Add warning to readme, that all .sv files in the launch location must be 
 free of syntax errors.
 - [ ] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
 - [ ] Convert mode individual readme files to markdown files.
+
+### More into the future
 - [ ] Add a flag to connect a System ILA debug core to all nets marked as
 debug. During configuration, supply the now generated .ltx file to the 
 hardware manager before downloading the bitstream.
