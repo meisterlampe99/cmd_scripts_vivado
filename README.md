@@ -127,8 +127,8 @@ Non-project Mode:
 - [x] Add table to Readme showing script usage in CMD and Powershell (+path setup)
 - [x] Combine IOSTANDARD and LOCATION parameters into single lines in .xdc
 - [x] Add synchronizer for reset input.
-- [x] Emphasize the strict naming convention for simulation <module>\_tb for runSim script.
-- [ ] Add only one .xdc file to each run, named <module>.xdc
+- [x] Emphasize the strict naming convention for simulation \<module\>\_tb for runSim script.
+- [ ] Add only one .xdc file to each run, named \<module\>.xdc
 - [x] Add warning to readme, that all .sv files in the launch location must be 
 free of syntax errors.
 - [ ] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
