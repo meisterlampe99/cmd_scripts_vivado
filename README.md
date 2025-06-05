@@ -113,6 +113,8 @@ Non-project Mode:
 
 ## Ideas for future improvements
 
+- [ ] add synchronizer for reset input.
+- [ ] pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
 - [ ] Convert mode individual readme files to markdown files.
 - [ ] Add a flag to connect a System ILA debug core to all nets marked as
 debug. During configuration, supply the now generated .ltx file to the 
