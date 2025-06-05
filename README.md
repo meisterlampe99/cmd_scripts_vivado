@@ -12,7 +12,7 @@ The scripts scan the launch folder for all SystemVerilog files (.sv).
 The **TopModuleName** must be handed over to the scripts as an argument.
 All .sv files in the folder must be free of syntax errors!
 Actual filenames should be irrelevant, but modules should be saved with the 
-module name in the filename: 
+module name as the filename: 
 	
 The module **myModule** should be saved as **myModule.sv**. 
 The *testbench module* of said module must be called **myModule_tb** 
@@ -83,7 +83,7 @@ The targeted FPGA device can be chosen within the settings.tcl script.
 ### Usage of the provided example
 
 Navigate to one of the example folders (project_mode, non-project_mode) from a
-Command Prompt in Windows and type:
+Command Prompt or a PowerShell in Windows and type:
 
 | Pommand Prompt | PowerShell | Description |
 | ----------- | ----------- | ----------- |
@@ -108,7 +108,7 @@ The following files and folders are deleted when clean.bat is executed:
 
 The *runSim.bat* and *runBit.bat* scripts will do the same, but only delete their respective output folders, outputSim or outputBit, instead of both.
 
-### Manual TCL script usage
+### Manual TCL script usage (or usage under Linux)
 
 Project Mode:
 
@@ -147,3 +147,4 @@ to the directory of the HDL project.
 launch folder, to ensure that Vivado logs are dumped there instead.
 Then remove the potentially dangerous delete commands from the batch files.
 - [ ] Add a similar example for a ZYBO board and the ZUBoard 1CG (Zynq US+)
+- [ ] Make shell scripts for UNIX?
