@@ -126,7 +126,8 @@ Non-project Mode:
 
 ## Ideas for future improvements
 
-- [x] Add table to Readme showing script usage in CMD and Powershell (+path setup)
+- [x] Add table to Readme showing script usage in CMD and Powershell
+- [ ] Add vivado -version to check if path is setup correcty, show how to do so for cmd and powershell
 - [x] Combine IOSTANDARD and LOCATION parameters into single lines in .xdc
 - [x] Add synchronizer for reset input.
 - [x] Emphasize the strict naming convention for simulation \<module\>\_tb for runSim script.
