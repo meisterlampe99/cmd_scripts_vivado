@@ -46,12 +46,11 @@ For Vivado versions later than 2019.1 a linter is used. All linter messages of
 type WARNING and CRITICAL WARNING are set to ERROR. An additional file, 
 top_level_wLintErrors.sv is available for testing linter behaviour.
 
-### Setting up the PATH
+### Setting up the PATH variable
 
 Verify that Vivado is availalbe in your shell by calling `vivado -version`.
 
-Otherwise, include the \bin folder of the Vivado install location to the PATH 
-variable:
+Otherwise, include the \bin folder of the Vivado install location to the PATH variable:
 
 | Shell | Commands | Descriptions |
 | ----------- | ----------- | ----------- |
@@ -143,20 +142,20 @@ Non-project Mode:
 - [x] Combine IOSTANDARD and LOCATION parameters into single lines in .xdc
 - [x] Add synchronizer for reset input.
 - [x] Emphasize the strict naming convention for simulation \<module\>\_tb for runSim script.
-- [ ] Add only one .xdc file to each run, named \<module\>.xdc
 - [x] Add warning to readme, that all .sv files in the launch location must be 
 free of syntax errors.
 - [x] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
-- [ ] Convert mode individual readme files to markdown files.
+- [x] <s>Convert mode individual readme files to markdown files</s>. Removed outdated <br> mode individual readme files.
+- [ ] Add only one .xdc file to each run, named \<module\>.xdc
 
 ### Ideas for even further into the future
 - [ ] Add a flag to connect a System ILA debug core to all nets marked as
 debug. During configuration, supply the now generated .ltx file to the 
 hardware manager before downloading the bitstream.
-- [ ] Launch scripts from an install directory instead of having to copy them
-to the directory of the HDL project.
 - [ ] Launch the script from the created output subfolder instead of the 
 launch folder, to ensure that Vivado logs are dumped there instead.
 Then remove the potentially dangerous delete commands from the batch files.
 - [ ] Add a similar example for a ZYBO board and the ZUBoard 1CG (Zynq US+)
+- [ ] Launch scripts from an install directory instead of having to copy them
+to the directory of the HDL project.
 - [ ] Make shell scripts for UNIX?
