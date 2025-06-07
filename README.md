@@ -52,11 +52,10 @@ Verify that Vivado is availalbe in your shell by calling `vivado -version`.
 Otherwise, include the \bin folder of the Vivado install location to the PATH 
 variable:
 
-| Pommand Prompt | PowerShell | Description |
-| ----------- | ----------- | ----------- |
-| `path` | `$env:Path` | Umgebungsvariable Path anzeigen   |
-| `path=%PATH%;C:\Xilinx\Vivado\2024.2\bin` | `$env:Path+=';C:\Xilinx\Vivado\2024.2\bin'` | Programmpfad am Ende von Path hinzufügen |
-
+| Shell | Display & <br> Append to PATH commands |
+| ----------- | ----------- |
+| Command Prompt | `path` <br> `path=%PATH%;C:\Xilinx\Vivado\2024.2\bin` |
+| PowerShell | `$env:Path` <br> `$env:Path+=';C:\Xilinx\Vivado\2024.2\bin'` | 
 
 -------------------------------------------------------------------------------
 
