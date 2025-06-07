@@ -46,6 +46,18 @@ For Vivado versions later than 2019.1 a linter is used. All linter messages of
 type WARNING and CRITICAL WARNING are set to ERROR. An additional file, 
 top_level_wLintErrors.sv is available for testing linter behaviour.
 
+### setting up the path
+
+Verify that Vivado is availalbe in your shell by calling `vivado -version`.
+Otherwise, include the \bin folder of the Vivado install location to the PATH 
+variable:
+
+| Pommand Prompt | PowerShell | Description |
+| ----------- | ----------- | ----------- |
+| `path` | `$env:Path` | Umgebungsvariable Path anzeigen   |
+| `path=%PATH%;C:\Xilinx\Vivado\2024.2\bin` | `$env:Path+=';C:\Xilinx\Vivado\2024.2\bin'` | Programmpfad am Ende von Path hinzufügen |
+
+
 -------------------------------------------------------------------------------
 
 ## How to use
@@ -58,23 +70,23 @@ e.g.: *config.bat* or just *config*
 
 Available batch scripts:
 
-	- clean 			removes most previously generated output
+	- clean 			Removes most previously generated output
 					see also "Info on clean.bat script"
 
-	- runSim <TopModuleName> [<DUTname>]	launches the simulation of <TopModuleName>_tb,
+	- runSim <TopModuleName> [<DUTname>]	Launches the simulation of <TopModuleName>_tb,
 						and pre-loads a waveform configuration.
 						Note: A module called "top_level_tb" must exist!
-						[Optional:<DUTname>] adds a divider in the waveform
-						viewer and adds all DUT internal signals below.
+						[Optional:<DUTname>] Adds a divider in the waveform
+						viewer and adds all DUT internal signals below it.
 
-	- runBit <TopModuleName>	synthesizes, implements and generates the bitstream for 
+	- runBit <TopModuleName>	Synthesizes, implements and generates the bitstream for 
 					<TopModuleName>
 							
-	- config <TopModuleName>	connects to the board and configures the FPGA by down-
+	- config <TopModuleName>	Connects to the board and configures the FPGA by down-
 					loading the bitstream generated from <TopModuleName>
 					
 	Note: Make sure the module is inside a system verilog file ".sv"
-	Note: Use the module name to run scripts not the filename.sv!
+	Note: Use the module name as the argument! Do not use the filename with the .sv ending!
 	Note: All .sv files in the launch folder must be free of syntax errors!
 	Tipp: To ignore files, remove the .sv ending, or move them out of the folder.
 
@@ -87,7 +99,7 @@ Command Prompt or a PowerShell in Windows and type:
 
 | Pommand Prompt | PowerShell | Description |
 | ----------- | ----------- | ----------- |
-| `runSim top_level DUT` | `./runSim top_level DUT` | Note: "top_level_tb" module must exist! <br> The device under test in the example testbench is called DUT   |
+| `runSim top_level DUT` | `./runSim top_level DUT` | Note: "top_level_tb" module must exist! <br> The device under test in the example<br> testbench is called DUT   |
 | `runBit top_level` | `./runBit top_level` |         |
 | `config top_level` | `./config top_level` | Note: Cable drivers must be installed!      |
 
@@ -127,7 +139,7 @@ Non-project Mode:
 ## Ideas for future improvements
 
 - [x] Add table to Readme showing script usage in CMD and Powershell
-- [ ] Add vivado -version to check if path is setup correcty, show how to do so for cmd and powershell
+- [x] Add vivado -version to check if path is setup correcty, show how to do so for cmd and powershell
 - [x] Combine IOSTANDARD and LOCATION parameters into single lines in .xdc
 - [x] Add synchronizer for reset input.
 - [x] Emphasize the strict naming convention for simulation \<module\>\_tb for runSim script.
