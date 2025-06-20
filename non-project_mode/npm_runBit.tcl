@@ -73,6 +73,9 @@ if {[catch {
         puts "Vivado version is 2019.1 or older - no Linter available"
     }
 
+    # Decrease severity of "Parallel synthesis criteria is not met" to INFO
+    set_msg_config -id {Synth 8-7080} -new_severity INFO
+
     # Synthesize the design
     synth_design -top $topmodule
 
