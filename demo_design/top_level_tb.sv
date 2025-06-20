@@ -6,7 +6,7 @@ logic [7:0] LEDS;
 
 top_level DUT(
     .clk(CLK),
-    .rst(RST),
+    .rst_ext(RST),
     .leds(LEDS)
     );
 
