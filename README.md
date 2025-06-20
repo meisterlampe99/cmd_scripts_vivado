@@ -48,7 +48,7 @@ top_level_wLintErrors.sv is available for testing linter behaviour.
 
 ### Setting up the PATH variable
 
-Verify that Vivado is availalbe in your shell by calling `vivado -version`.
+Verify that Vivado is available in your shell by calling `vivado -version`.
 
 Otherwise, include the \bin folder of the Vivado install location to the PATH variable:
 
@@ -147,6 +147,7 @@ free of syntax errors.
 - [x] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
 - [x] <s>Convert mode individual readme files to markdown files</s>. Removed outdated <br> mode individual readme files.
 - [ ] Add only one .xdc file to each run, named \<module\>.xdc
+- [ ] Use Make for build automation?
 
 ### Ideas for even further into the future
 - [ ] Add a flag to connect a System ILA debug core to all nets marked as
