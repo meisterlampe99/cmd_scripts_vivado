@@ -159,4 +159,4 @@ Then remove the potentially dangerous delete commands from the batch files.
 - [ ] Add a similar example for a ZYBO board and the ZUBoard 1CG (Zynq US+)
 - [ ] Launch scripts from an install directory instead of having to copy them
 to the directory of the HDL project.
-- [ ] Make shell scripts for UNIX?
+- [ ] Make shell scripts for Linux!?
