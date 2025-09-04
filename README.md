@@ -108,14 +108,14 @@ Command Prompt or a PowerShell in Windows and type:
 
 The following files and folders are deleted when clean.bat is executed:
 
-	DEL vivado*.zip
-	DEL vivado*.jou
-	DEL vivado*.log
-	DEL webtalk*.jou
-	DEL webtalk*.log
-	RMDIR /S /Q outputSim
-	RMDIR /S /Q outputBit
-	RMDIR /S /Q .Xil
+	DEL vivado*.zip >nul 2>&1
+	DEL vivado*.jou >nul 2>&1
+	DEL vivado*.log >nul 2>&1
+	DEL webtalk*.jou >nul 2>&1
+	DEL webtalk*.log >nul 2>&1
+	RMDIR /S /Q outputSim >nul 2>&1
+	RMDIR /S /Q outputBit >nul 2>&1
+	RMDIR /S /Q .Xil >nul 2>&1
 
 The *runSim.bat* and *runBit.bat* scripts will do the same, but only delete their respective output folders, outputSim or outputBit, instead of both.
 
@@ -145,7 +145,7 @@ Non-project Mode:
 - [x] Add warning to readme, that all .sv files in the launch location must be 
 free of syntax errors.
 - [x] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
-- [x] <s>Convert mode individual readme files to markdown files</s>. Removed outdated <br> mode individual readme files.
+- [x] <s>Convert mode individual readme files to markdown files</s>. <br> Removed outdated mode individual readme files.
 - [ ] Add only one .xdc file to each run, named \<module\>.xdc
 - [ ] Use Make for build automation?
 
