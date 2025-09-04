@@ -70,7 +70,7 @@ e.g.: *config.bat* or just *config*
 Available batch scripts:
 
 	- clean 			Removes most previously generated output
-					see also "Info on clean.bat script"
+						see also "Info on clean.bat script"
 
 	- runSim <TopModuleName> [<DUTname>]	Launches the simulation of <TopModuleName>_tb,
 						and pre-loads a waveform configuration.
@@ -96,7 +96,7 @@ The targeted FPGA device can be chosen within the settings.tcl script.
 Navigate to one of the example folders (project_mode, non-project_mode) from a
 Command Prompt or a PowerShell in Windows and type:
 
-| Pommand Prompt | PowerShell | Description |
+| Command Prompt | PowerShell | Description |
 | ----------- | ----------- | ----------- |
 | `runSim top_level DUT` | `./runSim top_level DUT` | Note: "top_level_tb" module must exist! <br> The device under test in the example<br> testbench is called DUT   |
 | `runBit top_level` | `./runBit top_level` |         |
