@@ -10,13 +10,13 @@ set TopModuleName=%~1
 set DUTName=%~2
 
 REM clean up working directory
-DEL vivado*.zip
-DEL vivado*.jou
-DEL vivado*.log
-DEL webtalk*.jou
-DEL webtalk*.log
-RMDIR /S /Q outputSim
-RMDIR /S /Q .Xil
+DEL vivado*.zip >nul 2>&1
+DEL vivado*.jou >nul 2>&1
+DEL vivado*.log >nul 2>&1
+DEL webtalk*.jou >nul 2>&1
+DEL webtalk*.log >nul 2>&1
+RMDIR /S /Q outputSim >nul 2>&1
+RMDIR /S /Q .Xil >nul 2>&1
 
 
 REM Run Vivado in tcl mode with the provided top module name
