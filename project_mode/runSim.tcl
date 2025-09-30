@@ -75,9 +75,7 @@ if {[catch {
 		# Call the line if the version is newer than 2019.1
 		puts "Vivado version is newer than 2019.1 - do Linting"
 		synth_design -top ${topmodule} -lint
-		
-		# Generate linting report
-		report_drc -file $project_dir/lint_report.txt
+	
 	} else {
 		puts "Vivado version is 2019.1 or older - no Linter available"
 	}
