@@ -146,7 +146,10 @@ Non-project Mode:
 free of syntax errors.
 - [x] Pass name of DUT down to runSim.bat (for adding signals to waveform viewer)
 - [x] <s>Convert mode individual readme files to markdown files</s>. <br> Removed outdated mode individual readme files.
+- [x] Synthesis: Increased severity of inferred latches and multiple drivers to error
 - [ ] Add only one .xdc file to each run, named \<module\>.xdc
+- [ ] for easier maintainability: combine runSim.tcl and runBit.tcl into a single run.tcl file, parametrized by the shell scripts.
+- [ ] combine both project and non project mode run.tcl scripts into a single script. distinguish via -pm or -npn parameter (single script solution)
 - [ ] Use Make for build automation?
 
 ### Ideas for even further into the future

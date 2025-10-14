@@ -71,7 +71,14 @@ if {[catch {
     }
 
     # Decrease severity of "Parallel synthesis criteria is not met" to INFO
-    set_msg_config -id {Synth 8-7080} -new_severity INFO
+    set_msg_config -id {Synth 8-7080} -new_severity {INFO}
+	
+	# Increase severity of multiple divers to error
+	set_msg_config -id {Synth 8-6859} -new_severity {ERROR}
+	
+	# Increase severity of inferred latches to error
+	set_msg_config -id {Synth 8-7137} -new_severity {ERROR}
+	set_msg_config -id {Synth 8-327} -new_severity {ERROR}
 
     # Synthesize the design
     synth_design -top $topmodule
